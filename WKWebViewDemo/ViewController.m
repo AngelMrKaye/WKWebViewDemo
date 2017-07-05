@@ -42,7 +42,7 @@
     [self.view addSubview:self.webView];
     self.bridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
     
-    //js 调用原生，获取数据
+    //js 调用原生，获取数据,通过回调给JS
     [self.bridge registerHandler:@"JSCallOC" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"javascript data is :%@",data);
         responseCallback(@"from Objective-C");
