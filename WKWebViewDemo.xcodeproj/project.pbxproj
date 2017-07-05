@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0DAB67AB503F976D9F39587E /* libPods-WKWebViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEB503AF69E591C9106408C /* libPods-WKWebViewDemo.a */; };
+		6A1BE1481F0D1DA300D3EF98 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 6A1BE1471F0D1DA300D3EF98 /* index.html */; };
 		6F026D660710F70F127240F3 /* libPods-WKWebViewDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2B3C988C84F2AA9D15DCAE /* libPods-WKWebViewDemoUITests.a */; };
 		CE9694671F0B5AAA0054C90B /* TYWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9694661F0B5AAA0054C90B /* TYWebViewController.m */; };
 		CE9B8EAB1F0C84FA00D8E514 /* common.js in Resources */ = {isa = PBXBuildFile; fileRef = CE9B8EAA1F0C84FA00D8E514 /* common.js */; };
@@ -19,7 +20,6 @@
 		CEBBFAB21F037F4B008D8072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEBBFAB01F037F4B008D8072 /* LaunchScreen.storyboard */; };
 		CEBBFABD1F037F4B008D8072 /* WKWebViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBBFABC1F037F4B008D8072 /* WKWebViewDemoTests.m */; };
 		CEBBFAC81F037F4C008D8072 /* WKWebViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBBFAC71F037F4C008D8072 /* WKWebViewDemoUITests.m */; };
-		CEF35D201F04DBF500C5147B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = CEF35D1F1F04DBF500C5147B /* index.html */; };
 		F628DF2D9DA1AEE46C2A84DB /* libPods-WKWebViewDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CA2A3E8595D408A5518C1A /* libPods-WKWebViewDemoTests.a */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +46,7 @@
 		20F35ED9B3971126D9290C0E /* Pods-WKWebViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKWebViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKWebViewDemo/Pods-WKWebViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		4E2B3C988C84F2AA9D15DCAE /* libPods-WKWebViewDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKWebViewDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52784637D67007F1FDF84858 /* Pods-WKWebViewDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKWebViewDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKWebViewDemoUITests/Pods-WKWebViewDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6A1BE1471F0D1DA300D3EF98 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		B4CA2A3E8595D408A5518C1A /* libPods-WKWebViewDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKWebViewDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9694651F0B5AAA0054C90B /* TYWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYWebViewController.h; sourceTree = "<group>"; };
 		CE9694661F0B5AAA0054C90B /* TYWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYWebViewController.m; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		CEBBFAC31F037F4C008D8072 /* WKWebViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WKWebViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBBFAC71F037F4C008D8072 /* WKWebViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewDemoUITests.m; sourceTree = "<group>"; };
 		CEBBFAC91F037F4C008D8072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEF35D1F1F04DBF500C5147B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = "../../../../Downloads/OC-JS-WKWebView-master/OC与JS交互之WKWebView/index.html"; sourceTree = "<group>"; };
 		D7088E95203AE4329D819B5D /* Pods-WKWebViewDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKWebViewDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKWebViewDemoTests/Pods-WKWebViewDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F5F243115C628DB96336408E /* Pods-WKWebViewDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKWebViewDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WKWebViewDemoUITests/Pods-WKWebViewDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FAEB503AF69E591C9106408C /* libPods-WKWebViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKWebViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,7 +135,7 @@
 		CEBBFAA11F037F4B008D8072 /* WKWebViewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				CEF35D1F1F04DBF500C5147B /* index.html */,
+				6A1BE1471F0D1DA300D3EF98 /* index.html */,
 				CE9B8EAA1F0C84FA00D8E514 /* common.js */,
 				CEBBFAA51F037F4B008D8072 /* AppDelegate.h */,
 				CEBBFAA61F037F4B008D8072 /* AppDelegate.m */,
@@ -310,8 +310,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEBBFAB21F037F4B008D8072 /* LaunchScreen.storyboard in Resources */,
-				CEF35D201F04DBF500C5147B /* index.html in Resources */,
 				CEBBFAAF1F037F4B008D8072 /* Assets.xcassets in Resources */,
+				6A1BE1481F0D1DA300D3EF98 /* index.html in Resources */,
 				CEBBFAAD1F037F4B008D8072 /* Main.storyboard in Resources */,
 				CE9B8EAB1F0C84FA00D8E514 /* common.js in Resources */,
 			);

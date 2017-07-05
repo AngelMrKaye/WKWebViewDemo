@@ -10,10 +10,11 @@
 #import <WebKit/WebKit.h>
 #import <WebViewJavascriptBridge/WKWebViewJavascriptBridge.h>
 
-@interface ViewController ()<WKScriptMessageHandler,WKNavigationDelegate,WKUIDelegate>
+@interface ViewController ()
 
 @property (nonatomic, strong) WKWebView *webView;
 @property (nonatomic, strong) WKWebViewJavascriptBridge *bridge;
+@property (nonatomic, strong) UILabel *label;
 
 @end
 
@@ -24,53 +25,51 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     
+    [self createUI];
+    
+
+    
+//    [self loadRequestWithRequestUrl:@"http://192.168.6.157:8090/"];
+    
+    //js 调用原生，获取数据,通过回调给JS
+    [self.bridge registerHandler:@"JSCallOC" handler:^(id data, WVJBResponseCallback responseCallback) {
+        self.label.text = [NSString stringWithFormat:@"%@,并准备向Objective-C要一个苹果",data];
+        responseCallback(@"并向Objective-C要了一个苹果");
+    }];
+}
+
+- (void)createUI {
+    
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
     config.preferences.javaScriptEnabled = YES;
     config.preferences.javaScriptCanOpenWindowsAutomatically = YES;
     
-    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 20, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)-60) configuration:config];
-    
-//    self.webView.navigationDelegate = self;
-//    
-//    WKUserContentController *userCC = self.webView.configuration.userContentController;
-//    
-//    [userCC addScriptMessageHandler:self name:@"btnClick2"];
-    
-//    [self loadRequestWithRequestUrl:@"http://192.168.6.157:8090/"];
-    [self loadLocalHtmlWithFileName:@"index"];
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 20, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)-120) configuration:config];
     
     [self.view addSubview:self.webView];
     self.bridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
+    [self loadLocalHtmlWithFileName:@"index"];
     
-    //js 调用原生，获取数据,通过回调给JS
-    [self.bridge registerHandler:@"JSCallOC" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"javascript data is :%@",data);
-        responseCallback(@"from Objective-C");
-    }];
+    self.label = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.webView.frame), self.view.frame.size.width, 50)];
     
+    self.label.numberOfLines = 0;
+    self.label.adjustsFontSizeToFitWidth = YES;
+    [self.view addSubview:self.label];
     
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(15, CGRectGetMaxY(self.webView.frame), self.view.frame.size.width - 30, 30)];
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(15, CGRectGetMaxY(self.label.frame), self.view.frame.size.width - 30, 30)];
     [button setTitle:@"点我调用JS" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setBackgroundColor:[UIColor blueColor]];
     [button addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
-    
 }
 
-
--(void)loadRequestWithRequestUrl:(NSString *)requestUrl{
-    if(_webView){
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestUrl] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData | NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
-        [_webView loadRequest:request];
-    }
-}
 
 -(void)click {
     [self.bridge callHandler:@"OCCallJS"];
-//    [self.bridge callHandler:@"OCCallJS" data:@"this is a have data"];
-//    [self.bridge callHandler:@"OCCallJS" data:@"this is a have data and callback" responseCallback:^(id responseData) {
-//        NSLog(@"callback:%@",responseData);
+//    [self.bridge callHandler:@"OCCallJS" data:@"Objective-C主动给JS一个苹果，并且不要回报"];
+//    [self.bridge callHandler:@"OCCallJS" data:@"Objective-C主动给JS一个苹果" responseCallback:^(id responseData) {
+//        self.label.text = [NSString stringWithFormat:@"Objective-C主动给JS一个苹果后，%@",responseData];
 //    }];
 }
 
@@ -82,35 +81,12 @@
     }
 }
 
--(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
-    
-    [self.webView evaluateJavaScript:@"getMsg1('this is a token')" completionHandler:^(id _Nullable response, NSError * _Nullable error) {
-        NSLog(@"response:%@,\nerror: %@",response,error);
-    }];
-//
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - WKScriptMessageHandler
-//JS调用原生，在这个方法中，响应js的方法
--(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
-    if([message.name isEqualToString: @"btnClick2"]){
-        NSLog(@"%@",message.body);
-        [self.webView evaluateJavaScript:@"getMsg1('1111')" completionHandler:^(id _Nullable response, NSError * _Nullable error) {
-            NSLog(@"response:%@,\nerror: %@",response,error);
-        }];
-        
-    }
-}
-
-#pragma mark - WKNavigationDelegate
-
-
-#pragma mark - WKUIDelegate
 
 
 @end

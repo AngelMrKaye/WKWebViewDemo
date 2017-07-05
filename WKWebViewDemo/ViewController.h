@@ -10,7 +10,6 @@
 
 @interface ViewController : UIViewController
 
-- (void)loadRequestWithRequestUrl:(NSString *)requestUrl;
 
 
 @end
