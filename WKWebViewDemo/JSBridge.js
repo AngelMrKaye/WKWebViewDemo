@@ -25,11 +25,11 @@ iosBridge(function (bridge){
      * @first param: 'OCCallJS', 是OC调用JS的方法名，需要事先注册
      * @second param: 回调函数，其中data 是OC通过 ‘OCCallJS’ 方法，传过来的值， ’responseCallBack‘ 是JS回调给OC的方法，通过’responseCallBack‘可以给OC传递一个值
     */
-    // bridge.registerHandler('OCCallJS', function(data,responseCallBack){
-    //        console.log('js is called by oc,data from oc:' + data)
-    //        document.getElementById('div1').innerText = data + '并准备向JS要一个橘子'
-    //        responseCallBack('并向JS要一个橘子')
-    // })
+     bridge.registerHandler('OCCallJS', function(data,responseCallBack){
+            console.log('js is called by oc,data from oc:' + data)
+            document.getElementById('div1').innerText = data + '并准备向JS要一个橘子'
+            responseCallBack('并向JS要一个橘子')
+     })
     /**
      * 上述方法必须对应OC中的方法，如果OC没有callback，JS端会报错
      * OC方法原型：[bridge callHandler:(NSString*)handlerName data:(id)data responseCallback:(WVJBResponseCallback)callback]

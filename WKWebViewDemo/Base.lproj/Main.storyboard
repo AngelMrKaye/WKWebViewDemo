@@ -1,26 +1,109 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ysq-UD-H6x">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="1yJ-DQ-CQG">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <navigationController id="Ysq-UD-H6x" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C14-NJ-6gT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JvO-bw-2bR" kind="relationship" relationship="rootViewController" id="AXO-t0-gUu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JRl-Qk-xnr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="684" y="34"/>
+        </scene>
+        <!--WKWebViewDemo-->
+        <scene sceneID="Df6-Bl-oKP">
+            <objects>
+                <viewController id="JvO-bw-2bR" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="2FA-Dp-hQ9"/>
+                        <viewControllerLayoutGuide type="bottom" id="0zR-M9-SgU"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="LbC-f0-Clh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcW-ag-rof">
+                                <rect key="frame" x="97" y="372" width="180" height="30"/>
+                                <state key="normal" title="WebViewJavaScriptBridge"/>
+                                <connections>
+                                    <segue destination="wS7-GX-M1N" kind="show" id="8Pr-j7-fPG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Lp-EM-QRr">
+                                <rect key="frame" x="156" y="245" width="62" height="30"/>
+                                <state key="normal" title="原生交互"/>
+                                <connections>
+                                    <segue destination="t5I-ac-igC" kind="show" id="8yY-gU-JUQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0Lp-EM-QRr" firstAttribute="centerY" secondItem="LbC-f0-Clh" secondAttribute="centerY" constant="-73.5" id="RR4-qQ-aWn"/>
+                            <constraint firstItem="0Lp-EM-QRr" firstAttribute="centerX" secondItem="LbC-f0-Clh" secondAttribute="centerX" id="W4k-gF-LMf"/>
+                            <constraint firstItem="JcW-ag-rof" firstAttribute="centerY" secondItem="LbC-f0-Clh" secondAttribute="centerY" constant="53.5" id="ZNo-38-oOL"/>
+                            <constraint firstItem="JcW-ag-rof" firstAttribute="centerX" secondItem="LbC-f0-Clh" secondAttribute="centerX" id="hhI-T7-mLG"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="WKWebViewDemo" id="ffD-WQ-3to"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7iq-eP-yqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1365.5999999999999" y="28.335832083958024"/>
+        </scene>
+        <!--原生Demo-->
+        <scene sceneID="Sza-E3-k9q">
+            <objects>
+                <viewController id="t5I-ac-igC" customClass="NativeWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mUw-W8-6bT"/>
+                        <viewControllerLayoutGuide type="bottom" id="oKA-X1-FdR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rj5-jy-W8U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="原生Demo" id="7MS-kU-EGE"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TmA-la-5e6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2142" y="-105"/>
+        </scene>
+        <!--WebViewJavascriptBridgeDemo-->
+        <scene sceneID="BnL-Vj-T3a">
+            <objects>
+                <viewController id="wS7-GX-M1N" customClass="JSBridgeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Qr-KV-srS"/>
+                        <viewControllerLayoutGuide type="bottom" id="ST8-eE-wh1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jrm-72-Jhb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="WebViewJavascriptBridgeDemo" id="b4f-Pk-L02"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fRB-La-XfG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2143" y="530"/>
         </scene>
     </scenes>
 </document>
