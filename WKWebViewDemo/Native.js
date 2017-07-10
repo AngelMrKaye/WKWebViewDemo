@@ -3,6 +3,9 @@ function OCCallJS(msg){
     return 'JS收到了OC的调用，并返回了我'
 }
 
+function responseCallHandler(response){
+    
+}
 
 function btnClick() {
     /**
