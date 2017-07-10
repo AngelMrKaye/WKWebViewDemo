@@ -56,8 +56,9 @@
 }
 
 -(void)click {
-    //
+    //OC 主动调用JS
     [_wkWebView evaluateJavaScript:@"OCCallJS('JS被调用了')" completionHandler:^(id _Nullable response, NSError * _Nullable error) {
+        //response是js方法OCCallJS的返回值
         NSLog(@"response:%@,error:%@",response,error);
     }];
 }
@@ -75,7 +76,8 @@
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
     if([message.name isEqualToString: @"JSCallOC"]){
         NSLog(@"%@",message.body);
-//        [self.wkWebView evaluateJavaScript:@"getMsg1('1111')" completionHandler:^(id _Nullable response, NSError * _Nullable error) {
+        //如果想在执行了一段代码之后，给予JS一个返回值，可通过类似于这种，变相充当返回值
+//        [self.wkWebView evaluateJavaScript:@"responseCallHandler('1111')" completionHandler:^(id _Nullable response, NSError * _Nullable error) {
 //            NSLog(@"response:%@,\nerror: %@",response,error);
 //        }];
         
@@ -84,11 +86,7 @@
 
 #pragma mark - WKNavigationDelegate
 -(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
-    
-    [self.wkWebView evaluateJavaScript:@"getMsg1('this is a token')" completionHandler:^(id _Nullable response, NSError * _Nullable error) {
-        NSLog(@"response:%@,\nerror: %@",response,error);
-    }];
-    //
+    //页面加在完成时调用
 }
 
 #pragma mark - WKUIDelegate

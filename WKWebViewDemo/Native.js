@@ -1,8 +1,12 @@
+//JS响应OC的调用
 function OCCallJS(msg){
     document.getElementById('div1').innerText = msg ? msg : '收到了来自OC的调用'
     return 'JS收到了OC的调用，并返回了我'
 }
 
+function responseCallHandler(response){
+    
+}
 
 function btnClick() {
     /**
