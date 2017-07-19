@@ -18,6 +18,11 @@
 
 @implementation NativeWebViewController
 
+-(void)dealloc{
+    //VC销毁时，移除所有UserScripts，避免内存泄漏
+    [self.wkWebView.configuration.userContentController removeAllUserScripts];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
